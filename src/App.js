@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+// Make sure to import the component we just built:
+import ColorBlock from './ColorBlock'
+import ColorForm from './ColorForm'
+function App(){
+    let colors, setColors = useState()//state variable returning as undefined, not sure what's going on
+    
+    const addColor = (newColor) =>{
+    }
+    let colorMap = colors.map((color, i) => {
+        return (
+            <ColorBlock color={color} key = {i} />
+        )
+    })
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            {console.log("colors log", colors)}
+            <ColorBlock color = {"red"}/>   
+            {colorMap}
+            <ColorForm addColor = {addColor}/>
+        </div>
+    )
 }
+
+
+// import ColorBlock from './ColorBlock'
+// import {useState} from 'react'
+// function App() {
+//   let colors, setColors = useState(["red", "orange", "yellow", "green", "blue", "indigo"])
+//    let colorMap = colors.map(color, i => {
+//       return(
+//         <ColorBlock color = {color}/>
+//       )
+//     }
+//   )
+//   return (
+//     <div className="App">
+//       <ColorBlock key={1} color = "red"/>
+//       {colorMap}
+//     </div>
+//   );
+// }
 
 export default App;
